@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&family=Poppins:wght@300;400;500&family=Sofia&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.2s linear;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: #000;
+}
+
+.btn{
+    margin-top: 2rem;
+    width: 150px;
+    padding: 12px;
+    color: #fff;
+    background: gold;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgba(212, 48, 48, 0.76);
+    transition: 0.4s;
+
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem .5%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    justify-content: space-between;
+    background-color: #000;
+}
+
+.header .logo{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #fff;
+    padding-right: 10px;
+    margin-right: 20rem;
+}
+
+.header .navbar a{
+    font-size: 1.1rem;
+    margin: 0 0.5rem;
+    color: white;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+.header .navbar a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: gold;
+    transition: width .5s ease-out;
+}
+
+.header .navbar a:hover::before{
+    width: 100%;
+}
+
+.header .navbar a:hover{
+    color: gold;
+}
+
+.header .navbar span{
+    font-size: 1.4em;
+}
+
+.header .navbar .icon{
+    font-size: 1.2em;
+}
+
+.heading{
+    display: inline-block;
+    color: #fff;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    padding-top: 5rem;
+    font-size: 3rem;
+    border-bottom: .2rem solid gold;
+}
+
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+
+section{
+    padding: 50px 0 50px 0 ;
+
+}
+.home{
+    display: flex;
+    background-image: url(./Images/istockphoto-1277745337-640x640.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 700px;
+}
+.home .home-image{
+    position: relative;
+    width: 100%;
+    transform: translate(100px, 100px);
+    padding-left: 1rem;
+}
+.home .max-width{
+    width: 100%;
+    display: flex;
+}
+
+.home .hom-content{
+    color: white;
+    margin-top: 6rem;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+.home p{
+    color: black;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-family:'Poppins',sans-serif;
+}
+
+.classes{
+    min-height: 100vh;
+    text-align: center;
+}
+
+.classes .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.classes .btn{
+    background: transparent;
+    color: #fff;
+    border: 1px solid gold;
+    font-size: 15px;
+    padding: 8px;
+    margin-bottom: 2rem;
+}
+
+.classes .btn:hover{
+    color: gold;
+}
+
+.classes .box-container .box .info h3{
+    font-size: 2.5rem;
+    color: gold;
+    padding: 1rem 2rem;
+}
+
+.classes .box-container .box .info p{
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
+.trainers{
+    min-height: 100vh;
+    text-align: center;
+    padding: 10rem 0;
+    background-color: #fff;
+}
+.trainers .heading{
+    color: #000;
+}
+.trainers a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.trainers .card-wrapper{
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 10px; 
+    padding-left: 5rem;
+}
+
+.trainers .card{
+    width: 32rem;
+    background-color: #ebeef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    box-shadow: .5rem .5rem 3tem rgba(0,0,0,0.2);
+}
+
+.card .card-img{
+    width: 100%;
+    height: 26rem;
+    object-fit: cover;
+    -webkit-clip-path: polygon(0 0,100% 0, 100% 78%, 0% 100%);
+    clip-path: polygon(0 0,100% 0, 100% 78%, 0% 100%);
+}
+
+.card .profile-img{
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -11rem;
+    z-index: 999;
+    border: 1rem solid #ebeef8;
+}
+.card h1{
+    font-size: 2.5rem;
+    color: #333;
+    margin: 1.5rem 0;
+}
+
+.card .trainer-job{
+    color: #777;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.card .about{
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    text-align: center;
+    color: #333;
+}
+
+.card .social-media{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    transition: color .5s;
+}
+
+.social-media i{
+    font-size: 3rem;
+}
+
+.fa-facebook-square{
+    color: #3b5999;
+}
+
+.fa-instagram{
+    color: #e6683c;
+}
+
+.fa-linkedin{
+    color: #0072b1;
+}
+
+.fa-facebook-square:hover,
+.fa-instagram:hover,
+.fa-linkedin:hover{
+    color: gold;
+}
+
+.nutrition{
+    min-height: 100vh;
+    text-align: center;
+}
+
+.nutrition .info h3{
+    font-size: 2.5rem;
+    color: gold;
+    padding: 1rem 2rem;
+}
+.nutrition .info a{
+    position: relative;
+    color: white;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 5rem;
+}
+
+.nutrition .info a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10px;
+    height: 2px;
+    background-color: red;
+    transition: width .5s ease-out;
+
+}
+
+.nutrition .info a:hover::before{
+    width: 100%;
+}
+.plan{
+    min-height: 100vh;
+    text-align: center;
+    flex-wrap: wrap;
+    background: #eee;
+}
+
+.plan .heading{
+    color: #000;
+}
+
+.plan .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.plan .box-container .box{
+    background: #fff;
+    margin: 2rem;
+    width: 30rem;
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+}
+
+.plan .box-container .box:hover{
+    transform: scale(1.05);
+}
+
+.plan .box-container .box .title{
+    font-size: 2rem;
+    background: gold;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.plan .box-container .box .Price{
+    font-size: 4rem;
+    color: #000;
+    padding-top: 1rem;
+}
+
+.plan .box-container .box .Price span{
+    font-size: 2rem;
+}
+
+.plan .box-container .box .month{
+    font-size: 2rem;
+    color: #000;
+}
+
+.plan .box-container .box ul{
+    margin: 2rem 8rem;
+    list-style: none;
+}
+
+.plan .box-container .box ul li{
+    text-align: center;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.plan .box-container .box ul li i{
+    color: gold;
+    padding: 0 .5rem;
+}
+
+.plan .box-container .box .btn{
+    margin-bottom: 1rem;
+}
+
+.Contact{
+    text-align: center;
+}
+.Contact form{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Contact form .textbox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.Contact form .textbox input, textarea{
+    height: 4rem;
+    width: 49%;
+    background: #fff;
+    color: #000;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    font-size: 2rem;
+    border: none;
+}
+
+.Contact form textarea{
+    height: 20rem;
+    resize: none;
+    padding: 1rem;
+    width: 100%;
+}
+.Contact form .btn{
+    background: transparent;
+    color: gold;
+    border: 1px solid gold;
+    font-size: 20px;
+    padding: 8px;
+    bottom: 20px;
+
+}
+
+.lform{
+  position: absolute;
+  width: 400px;
+  height: 550px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 25%;
+  left: 40%;
+  transition: height .2s ease;
+}
+
+.lform .login-form{
+    width: 100%;
+    padding: 40px;
+}
+
+.lform .register-form{
+    width: 100%;
+    padding: 40px;
+}
+
+
+.lform h2{
+    font-size: 2em;
+    color: gold;
+    text-align: center;
+}
+
+.lform .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid white;
+    margin: 30px 0;
+}
+
+.lform .input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.lform .input-box input:focus~label,
+.lform .input-box input:valid~label{
+    top: -5px;
+}
+.lform .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: white;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.lform .input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: white;
+    line-height: 57px;
+}
+
+.lform .remember-forgot{
+    font-size: .9em;
+    color: gold;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lform .remember-forgot label input {
+    accent-color: gold;
+    margin-right: 3px; 
+
+}
+
+.remember-forgot a {
+    color: white;
+    text-decoration: none;
+    transform: translateY(-9px);
+    transition: .5s;
+}
+
+.remember-forgot a:hover{
+    color: gold;
+    text-decoration: underline;
+    font-weight: 700;
+    transition: .5s;
+
+}
+.lform .btn{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 1px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: .5s;
+}
+
+.lform .btn:hover{
+    color: gold;
+    border: 1.5px solid gold;
+    transition: .5s;
+}
+
+.login-register{
+    font-size: .9em;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+    justify-content: space-between;
+
+}
+
+.login-register p a{
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+    color: gold;
+    font-weight: 700;
+    transition: .5s;
+}
+
+.register-form .remember-forgot{
+    transform: translateY(40px);
+}
+
+
+.Pcontainer .Paymentform{
+    background-color: lightgray;
+    width: 950px;
+    height: 1030px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.5rem 1.5rem;
+    transform: translate(500px, 100px)
+}
+
+.payment{ 
+    padding: 1rem;
+}
+
+.Pcontainer h3{
+    margin-top: 1rem;
+    color: red;
+}
+
+.payment input[type="text"]{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border: 2px solid gold;
+    padding: 0.5rem 0.7rem;
+    margin: 0.5rem 0;
+    outline: none;
+}
+
+.zip{
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.zip select{
+    padding: 0.5rem 0.7rem;
+}
+
+.zip input[type="number"]{
+    padding: 0.5rem 0.7rem;
+    margin-left: 5px;
+}
+
+.payment .btn{
+    position: relative;
+    transform: translateX(350px);
+}
+
+.postal{
+    margin-left: 0.5rem;
+    padding-left: 2rem;
+}
+
+.right #card-element{
+    padding: 10px;
+    border: 2px solid gold;
+    background-color: #fff;
+}
+
+.article {
+    position: absolute;
+    max-width: 600px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    top: 100%;
+    left: 30%;
+}
+
+.article-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.article-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.article-content {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.article-date {
+    font-size: 14px;
+    color: #777;
+}
