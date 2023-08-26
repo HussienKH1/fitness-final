@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'content'];
+    const TABLE = 'articles';
 
+    protected $table = self::TABLE;
+
+    protected $fillable = ['title', 'content', 'image'];
 
 }

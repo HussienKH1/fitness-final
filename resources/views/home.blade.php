@@ -19,6 +19,11 @@
                 <a href="#trainers">Trainers</a>
                 <a href="#nutrition">Nutrition</a>
                 <a href="{{ route ('plan')}}">Plan</a> 
+                @foreach($users as $user)
+                    @if($user->active === 1)
+                        <a href="{{ route ('unsub')}}">Unsubscribe</a>
+                    @endif
+                @endforeach
                 <span>|</span>  
                 <a href="#" onclick="event.preventDefault(); logout()"><ion-icon name="log-out-outline"></ion-icon></i></a>   
             </div>
@@ -97,116 +102,35 @@
 
 
     <section class="trainers" id="trainers">
-       <div class="container">
-       <h1 class="heading">Trainers</h1>
-        <div class="card-wrapper">
+        <div class="container">
+            <h1 class="heading">Trainers</h1>
+            <div class="card-wrapper">
+            @foreach($trainers as $trainer)
             <div class="card">
+                @if($trainer['job'] === 'Weightlifting')
                 <img src="./Images/low-angle-view-unrecognizable-muscular-build-man-preparing-lifting-barbell-health-club.jpg" alt="card background" class="card-img">
-                <img src="./Images/trainer 1.png" alt="profile image" class="profile-img">
-                <h1>Michelle Stones</h1>
-                <p class="trainer-job">Weightlifting</p>
-                <p class="about">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aliquam, perferendis magni, corrupti doloremque laboriosam
-                    reiciendis molestias doloribus consectetur facilis sit odio 
-                    blanditiis ipsum adipisci ab et. Placeat tenetur debitis iure.
-                </p>
-                <a href="{{ route ('contact')}}" class="btn">Contact</a>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="card">
+                @elseif($trainer['job'] === 'Boxing')
                 <img src="./Images/two-professional-boxer-boxing-black-smoky.jpg" alt="card background" class="card-img">
-                <img src="./Images/trainer 2.png" alt="profile image" class="profile-img">
-                <h1>Amelia Khatib</h1>
-                <p class="trainer-job">Boxing</p>
-                <p class="about">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aliquam, perferendis magni, corrupti doloremque laboriosam
-                    reiciendis molestias doloribus consectetur facilis sit odio 
-                    blanditiis ipsum adipisci ab et. Placeat tenetur debitis iure.
-                </p>
-                <a href="{{ route ('contact')}}" class="btn">Contact</a>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="card">
-                <img src="./Images/low-angle-view-unrecognizable-muscular-build-man-preparing-lifting-barbell-health-club.jpg" alt="card background" class="card-img">
-                <img src="./Images/trainer 3.png" alt="profile image" class="profile-img">
-                <h1>Adam Smith</h1>
-                <p class="trainer-job">Weightlifting</p>
-                <p class="about">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aliquam, perferendis magni, corrupti doloremque laboriosam
-                    reiciendis molestias doloribus consectetur facilis sit odio 
-                    blanditiis ipsum adipisci ab et. Placeat tenetur debitis iure.
-                </p>
-                <a href="{{ route ('contact')}}" class="btn">Contact</a>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="card">
+                @else
                 <img src="./Images/female-legs-running-track-gym.jpg" alt="card background" class="card-img">
-                <img src="./Images/trainer 4.png" alt="profile image" class="profile-img">
-                <h1>Sam Jone</h1>
-                <p class="trainer-job">Treadmill</p>
+                @endif
+                <img src="{{asset($trainer->picture)}}" alt="profile image" class="profile-img">
+                <h1>{{$trainer -> name}}</h1>
+                <p class="trainer-job">{{$trainer -> job}}</p>
                 <p class="about">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Aliquam, perferendis magni, corrupti doloremque laboriosam
                     reiciendis molestias doloribus consectetur facilis sit odio 
                     blanditiis ipsum adipisci ab et. Placeat tenetur debitis iure.
                 </p>
-                <a href="{{ route ('contact')}}" class="btn">Contact</a>
+                <a href="{{ route ('contact', ['trainerId' => $trainer->id])}}" class="btn">Contact</a>
                 <ul class="social-media">
                     <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
                 </ul>
             </div>
-            <div class="card">
-                <img src="./Images/two-professional-boxer-boxing-black-smoky.jpg" alt="card background" class="card-img">
-                <img src="./Images/trainer 5.png" alt="profile image" class="profile-img">
-                <h1>James Martinez</h1>
-                <p class="trainer-job">Boxing</p>
-                <p class="about">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aliquam, perferendis magni, corrupti doloremque laboriosam
-                    reiciendis molestias doloribus consectetur facilis sit odio 
-                    blanditiis ipsum adipisci ab et. Placeat tenetur debitis iure.
-                </p>
-                <a href="{{ route ('contact')}}" class="btn">Contact</a>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="card">
-                <img src="./Images/female-legs-running-track-gym.jpg" alt="card background" class="card-img">
-                <img src="./Images/trainer 6.png" alt="profile image" class="profile-img">
-                <h1>Olive Smith</h1>
-                <p class="trainer-job">Treadmill</p>
-                <p class="about">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aliquam, perferendis magni, corrupti doloremque laboriosam
-                    reiciendis molestias doloribus consectetur facilis sit odio 
-                    blanditiis ipsum adipisci ab et. Placeat tenetur debitis iure.
-                </p>
-                <a href="{{ route ('contact')}}" class="btn">Contact</a>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
+            @endforeach
             </div>
         </div>
     </section>
@@ -214,28 +138,15 @@
     <section class="nutrition" id="nutrition">
         <h1 class="heading">Nutrition</h1>
         <div class="box-container">
+            @foreach($articles as $article)
             <div class="box">
-                <img src="./Images/hazelnuts-dried-fruits-snack-bars.jpg" alt="" width="25%" height="25%">
+                <img src="{{asset($article->image)}}" alt="" width="25%" height="25%">
                 <div class="info">
-                    <h3>Important things to look out when buying a protien Bar</h3>
-                    <a href="{{route('article')}}">Read this article</a>
+                    <h3>{{$article->title}}</h3>
+                    <a href="{{route('article', ['id' => $article->id])}}">Read this article</a>
                 </div>
             </div>
-            <div class="box">
-                <img src="./Images/flay-lay-scale-weights.jpg" alt="" width="25%" height="25%">
-                <div class="info">
-                    <h3>Things to Consider Before Beginning a New Diet</h3>
-                    <a href="{{route('article')}}">Read this article</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="" alt="">
-                <div class="info">
-                    <img src="./Images/stair-lunge-1.jpg" alt="">
-                    <h3>Zero-Counting Calorie Reduction Techniques</h3>
-                    <a href="{{route('article')}}">Read this article</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     

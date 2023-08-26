@@ -3,20 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Stripe\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Stripe\Customer;
 use Stripe\Exception\ApiErrorException;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class SignUpController extends Controller
 {
+    use RegistersUsers;
+    
     public function store(Request $request)
     {
+
         // Validate the incoming request data
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|confirmed|min:8',
+            'terms_accepted' => ['required', 'accepted']
         ]);
         try{
         // Create a new user record

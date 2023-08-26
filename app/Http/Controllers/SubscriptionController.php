@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Plan;
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SubscriptionController extends Controller {
 
@@ -12,8 +14,8 @@ class SubscriptionController extends Controller {
 
   public function index(){
     $plans = Plan::all();
-
-    return view('plan', compact('plans'));
+    $users = User::all();
+    return view('plan', compact('plans','users'));
   }
 }
 

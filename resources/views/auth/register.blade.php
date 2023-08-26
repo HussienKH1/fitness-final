@@ -55,12 +55,15 @@
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="key"></ion-icon></span>
-                    <input type="password" id="password_confirmation" name="password_confirmation" required >
+                    <input type="password" id="password" name="password_confirmation" required >
                     <label>Confirm your Password</label>
+                    @if($errors->has('password'))
+                    <span class="text-danger">{{$errors->first('password')}}</span>
+                    @endif
                 </div>
 
                 <div class="remember-forgot">
-                    <label><input type="checkbox">I agree to the terms & conditions</label>
+                    <label><input type="checkbox" name="terms_accepted" id="terms_accepted" required>I agree to the terms & conditions</label>
                 </div>
                 <button type="submit" class="btn">Register</button>
                 <div class="login-register">

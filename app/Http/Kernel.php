@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
         'auth.check' => \App\Http\Middleware\RedirectIfNotAuthorized::class,
         'check_user_registration' => \App\Http\Middleware\CheckUserRegistration::class,
         'check.subscription' => \App\Http\Middleware\CheckSubscriptionMiddleware::class,
+        'active' => \App\Http\Middleware\IsActiveUser::class,
     ];
     
 }

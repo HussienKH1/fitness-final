@@ -32,13 +32,11 @@ class PaymentController extends Controller
             'city' => $request->city,
             'country' => $request->country,
             'postal_code' => $request->postal_code,
+            'active' => true,
         ]);
 
-        $plan = Plan::where('stripe_name', $request->plan) -> first();
 
-        $user -> newSubsicription($plan -> stripe_name, $plan->stripe_id)->create($paymentMethod);
-
-        return view('home');
+        return redirect()->route('home');
     }
 }
 

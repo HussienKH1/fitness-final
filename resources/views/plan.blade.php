@@ -19,24 +19,29 @@
                 <a href="/home#trainers">Trainers</a>
                 <a href="/home#nutrition">Nutrition</a>
                 <a href="{{ route ('plan')}}">Plan</a> 
+                @foreach($users as $user)
+                    @if($user->active === 1)
+                        <a href="#">Unsubscribe</a>
+                    @endif
+                @endforeach
                 <span>|</span>
                 <a href="#" onclick="event.preventDefault(); logout()"><ion-icon name="log-out-outline"></ion-icon></i></a>
             </div>
         </nav>
-              <script>
-        function logout() {
-            fetch("{{ route('logout') }}", {
+            <script>
+                function logout() {
+                fetch("{{ route('logout') }}", {
                 method: "POST",
                 headers: {
                     "X-CSRF-TOKEN": "{{ csrf_token() }}"
                 }
-            }).then(response => {
+                }).then(response => {
                 if (response.redirected) {
                     window.location.href = response.url;
                 }
-            });
-        }
-    </script>
+                });
+                 }
+            </script>
     </header>
     <section class="plan" id="plan">
         <h1 class="heading">Our membership plans</h1> 
@@ -50,7 +55,7 @@
                 <ul>
                     <li><i class="fas fa-check"></i>Weightlifting</li>
                     <li><i class="fas fa-check"></i>Protien Powder</li>
-                    <li><i class="fas fa-check"></i>Kereatine</li>
+                    <li><i class="fas fa-check"></i>Creatine</li>
                     <li><i class="fas fa-check"></i>cardio</li>     
                 </ul>
                 @elseif($plan['name'] === 'Standard Plan')
@@ -58,7 +63,7 @@
                  <ul>
                     <li><i class="fas fa-check"></i>Weightlifting</li>
                     <li><i class="fas fa-check"></i>Protien Powder</li>
-                    <li><i class="fas fa-check"></i>Kereatine</li>
+                    <li><i class="fas fa-check"></i>Creatine</li>
                     <li><i class="fas fa-check"></i>cardio</li>     
                 </ul>
                 @else($plan['name'] === 'Premium Plan')
@@ -66,12 +71,12 @@
                 <ul>
                     <li><i class="fas fa-check"></i>Weightlifting</li>
                     <li><i class="fas fa-check"></i>Protien Powder</li>
-                    <li><i class="fas fa-check"></i>Kereatine</li>
+                    <li><i class="fas fa-check"></i>Creatine</li>
                     <li><i class="fas fa-check"></i>cardio</li>     
                     <li><i class="fas fa-check"></i>boxing</li>          
                 </ul>
                 @endif
-                <a href="{{ route ('payments' ,['plan' => $plan->stripeName()])}}"><button class="btn">Buy</button></a>
+                <a href="{{ route ('payments' , ['plan' => $plan -> stripeName()])}}"><button class="btn">Buy</button></a>
             </div>
             @endforeach
         </div>

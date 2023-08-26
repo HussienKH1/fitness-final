@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Article;
 use App\Models\User;
+use App\Models\Trainer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 class Maincontroller extends Controller
 {
     function login(){
@@ -20,8 +23,21 @@ class Maincontroller extends Controller
         return view('checkout');
     }
 
-    function article(){
-        return view('article');
+    function article($id){
+        $articles = Article::find($id);
+        $users = User::all();
+        return view('article', compact('articles','users'));
+    }
+
+    function index(){
+        $trainers = Trainer::all();
+        $articles = Article::all();
+        return view('index', compact('trainers', 'articles'));
+    }
+
+    function unsub(){
+        $users = User::all();
+        return view ('unsubscribe', compact('users'));
     }
 }
 

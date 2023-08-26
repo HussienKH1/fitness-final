@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Stripe\PaymentController;
+use App\Http\Controllers\UnsubController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,9 @@ use App\Http\Controllers\Stripe\PaymentController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [Maincontroller::class, 'index']);
+Route::get('/index', [Maincontroller::class, 'index'])->name('index');
 
-Route::get('/index', function () {
-    return view('index');
-});
 
 Route::get('plan', [SubscriptionController::class, 'index'])->name('plan')->middleware('auth.check');
 Route::get('/auth/login', [Maincontroller::class, 'login'])->name('auth.login');
@@ -40,8 +37,11 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('payment', [PaymentController::class, 'index'])->name('payments');
 Route::post('payment', [PaymentController::class, 'store'])->name('payments.store');
-Route::get('contact', [ContactController::class, 'index']) -> name('contact') -> middleware('auth.check', 'check.subscription');
-Route::get('article', [Maincontroller::class, 'article']) -> name('article')->middleware('auth.check');
+Route::get('/contact/{trainerId}', [ContactController::class, 'index']) -> name('contact') -> middleware('auth.check', 'active');
+Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+Route::get('/article/{id}', [Maincontroller::class, 'article']) -> name('article')->middleware('auth.check');
+Route::get('unsub', [Maincontroller::class, 'unsub']) -> name('unsub');
+Route::post('unsub', [UnsubController::class, 'store'])->name('unsubscribe');
 
 
 Auth::routes();
